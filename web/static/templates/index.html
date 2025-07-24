@@ -1,179 +1,59 @@
-<html>
-  <head>
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-    <link
-      rel="stylesheet"
-      as="style"
-      onload="this.rel='stylesheet'"
-      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
-    />
-
-    <title>Dev Tools</title>
-    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
-
-    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  </head>
-  <body>
-    <div class="relative flex size-full min-h-screen flex-col bg-[#101e23] dark group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
-      <div class="layout-container flex h-full grow flex-col">
-        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#223f49] px-10 py-3">
-          <div class="flex items-center gap-4 text-white">
-            <div class="size-4">
-              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M44 4H30.6666V17.3334H17.3334V30.6666H4V44H44V4Z" fill="currentColor"></path></svg>
-            </div>
-            <h2 class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">DevTools</h2>
-          </div>
-          <div class="flex flex-1 justify-end gap-8">
-            <div class="flex items-center gap-9">
-              <a class="text-white text-sm font-medium leading-normal" href="#">Unix Time Converter</a>
-              <a class="text-white text-sm font-medium leading-normal" href="#">JSON Validator/Converter</a>
-              <a class="text-white text-sm font-medium leading-normal" href="#">IP/DNS Check</a>
-              <a class="text-white text-sm font-medium leading-normal" href="#">CSS Linter</a>
-            </div>
-            <button
-              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#223f49] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
-            >
-              <div class="text-white" data-icon="User" data-size="20px" data-weight="regular">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                  <path
-                    d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"
-                  ></path>
-                </svg>
-              </div>
-            </button>
-            <div
-              class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
-              style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCKpZWF8cAHfZnHe5FkPPt1UL0_WfRLKCWpJ7g-DsJd8OhSpk8odi-OAl_IFc1eDgA36ZUsQg1AfN3SL1qQuXBbMGGgpawWFfIDQltx1svjOAGUjev_lEqSUzPwknms9La5FZPzm6yWi7g6gN4pKI4lhh2DOWYehuZOcj2w1A_yrz5repztQ67wrRAEtnnnP1fKat5xBAu51LjsPyegPAB1X42DZCyfm7nxTOUvCfAPD3SgpOkL3cMXwH2VaGLS8NsK7D5Gcy3OMrI");'
-            ></div>
-          </div>
-        </header>
-        <div class="px-40 flex flex-1 justify-center py-5">
-          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-            <div class="@container">
-              <div class="@[480px]:p-4">
-                <div
-                  class="flex min-h-[480px] flex-col gap-6 bg-cover bg-center bg-no-repeat @[480px]:gap-8 @[480px]:rounded-xl items-center justify-center p-4"
-                  style='background-image: linear-gradient(rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.4) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuApkElpvrzO20WNaGe4bcsPVMa4WvfD-zvcKKHzhKslFExCiSGhsrZxpHK4U7hgEua2FnNxgolSMngw7q1fOiDhXMg3rqq19fhaTuXIHqtRIVDqltA64-CWswUgdlRxctAL9wLsF_0CqMjbzAkVPPvuRuSO2TdDGbAeMu8uepOIHG8LUDABBlkV63nRqtHlinTV4GTnd4wBiCYMjpAq9Hev0UXjKcE-DZ3HBZqFpMJW2W8cc6oSVHrGtiZ4aJPd1Sa6hLg5G5oOjlI");'
-                >
-                  <div class="flex flex-col gap-2 text-center">
-                    <h1
-                      class="text-white text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
-                    >
-                      Web Developer Tools
-                    </h1>
-                    <h2 class="text-white text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
-                      A comprehensive suite of online tools for web developers, including converters, validators, and utilities to streamline your workflow.
-                    </h2>
-                  </div>
-                  <label class="flex flex-col min-w-40 h-14 w-full max-w-[480px] @[480px]:h-16">
-                    <div class="flex w-full flex-1 items-stretch rounded-xl h-full">
-                      <div
-                        class="text-[#90bbcb] flex border border-[#315968] bg-[#182d34] items-center justify-center pl-[15px] rounded-l-xl border-r-0"
-                        data-icon="MagnifyingGlass"
-                        data-size="20px"
-                        data-weight="regular"
-                      >
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
-                          <path
-                            d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"
-                          ></path>
-                        </svg>
-                      </div>
-                      <input
-                        placeholder="Search for a tool"
-                        class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border border-[#315968] bg-[#182d34] focus:border-[#315968] h-full placeholder:text-[#90bbcb] px-[15px] rounded-r-none border-r-0 pr-2 rounded-l-none border-l-0 pl-2 text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal"
-                        value=""
-                      />
-                      <div class="flex items-center justify-center rounded-r-xl border-l-0 border border-[#315968] bg-[#182d34] pr-[7px]">
-                        <button
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#0bb1ee] text-[#101e23] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em]"
-                        >
-                          <span class="truncate">Go</span>
-                        </button>
-                      </div>
-                    </div>
-                  </label>
-                </div>
-              </div>
-            </div>
-            <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Featured Tools</h2>
-            <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
-              <div class="flex flex-col gap-3 pb-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAqT2O4o1p5EIQuAOL2_YvJiS1iD-gseQ4jZpIsSkuPohhL4sU9u4PPaNGfHuEbcf7q0M0N7NRyzHVwmm8LrOPJRmXN1vdXBR2xMGP30zoTpaZIE3Vxq1SzlX1pVpdu_BR5ZOoYJlSGgpvHEiuY6CvRqnI-Hn19yvmaY-lwq-LZWXkGC8AGA7YY0-YRJvpNH7CLWT4AoEJTtXKsG6xiXL9XPf9CzGNMQCXx_d-LyNTqzsl7tg62vIGsVCyTBp2Ud1J485_Unh7sxgg");'
-                ></div>
-                <div>
-                  <p class="text-white text-base font-medium leading-normal">Unix Time Converter</p>
-                  <p class="text-[#90bbcb] text-sm font-normal leading-normal">Convert Unix timestamps to human-readable dates and vice versa.</p>
-                </div>
-              </div>
-              <div class="flex flex-col gap-3 pb-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCxPHiQifhFiwRxXq8K3QmOfSfZZnPjEX2_7VR66TPJcofwcQM4BBMV4PFk92SQc0GdSTmR99xXgtTUkJoM-H8AZo3sE6cYKIVsOUpz5l2z4qK0cpwQ2ujmL89pjZS3cTP24YU3_7EDNjGpsYXOv43psNMZX6NyZkKeoLv0vCySpMIHgCT_v6p1LiC_WE6BWCI0ZAQtWoXOuKCWB6OxU05rwpyPIS2zXT4-Vin4eSN-F3eIx-4Zb_3Q1BVlXlPnjY46Ksy2W4gJ-2A");'
-                ></div>
-                <div>
-                  <p class="text-white text-base font-medium leading-normal">JSON Validator/Converter</p>
-                  <p class="text-[#90bbcb] text-sm font-normal leading-normal">Validate and convert JSON data with ease.</p>
-                </div>
-              </div>
-              <div class="flex flex-col gap-3 pb-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAJSQgu5iQsxgHs3SIHDus_JwmzEBK6wRJq1R8Xx_RVrRiOYer2z9_0nt2E8Dpy8POPVQQSxK086Bz2VT3f0cN6LUdJ9KrdbeXUpqeP1J51W1qFuG6n9rSQ_MQ5LphxAdUFN1uB5EVn6RsCfPDRS3egCBs1i3vitNb9tsDMliAVitXGU9cUgAiMVUyHcI72tk3FTUWMKse3LMi7RR9d5pS0Dprip--6Z88dY70znwX8YI_LIrNrBtVzaqopEi5Vism2Gou6eZBT4w");'
-                ></div>
-                <div>
-                  <p class="text-white text-base font-medium leading-normal">IP/DNS Check</p>
-                  <p class="text-[#90bbcb] text-sm font-normal leading-normal">Check for IP address and DNS information.</p>
-                </div>
-              </div>
-              <div class="flex flex-col gap-3 pb-3">
-                <div
-                  class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
-                  style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbvg0ChdzeLOfCwbv5yZmkaA5t0MpoWwn4G4iTNK6xEdMfOymrTZ7xg1Kx45idEz7vfQMZ19EWlBTS415BnQpImtt1nsrbbZVt-_DxdkAoA9v_k2DSjT6ejwHmoPUmz_Q9GbIfSNWE88J1lpDt3hzjy5rMXxbeJ5HIfqCob-I7RZS4KVXTB6wEbfV10zLb1Au-3rnqodJc8V7GNbxWhYb9EurOWZVdeuJ4_muVLhnQsKMvfdgxNc0udRM52K6fgjOK6KuZ0e_O7Uk");'
-                ></div>
-                <div>
-                  <p class="text-white text-base font-medium leading-normal">CSS Linter</p>
-                  <p class="text-[#90bbcb] text-sm font-normal leading-normal">Lint your CSS code for syntax errors and best practices.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+{{define "content"}}
+<div class="px-40 flex flex-1 justify-center py-5">
+  <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+    <h2 class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">Tools</h2>
+    <div class="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 p-4">
+      <a href="/unix-time" hx-get="/tools/unix-time" hx-target="#main-content" hx-push-url="/unix-time" class="flex flex-col gap-3 pb-3 cursor-pointer hover:opacity-80 transition-opacity">
+        <div
+          class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAqT2O4o1p5EIQuAOL2_YvJiS1iD-gseQ4jZpIsSkuPohhL4sU9u4PPaNGfHuEbcf7q0M0N7NRyzHVwmm8LrOPJRmXN1vdXBR2xMGP30zoTpaZIE3Vxq1SzlX1pVpdu_BR5ZOoYJlSGgpvHEiuY6CvRqnI-Hn19yvmaY-lwq-LZWXkGC8AGA7YY0-YRJvpNH7CLWT4AoEJTtXKsG6xiXL9XPf9CzGNMQCXx_d-LyNTqzsl7tg62vIGsVCyTBp2Ud1J485_Unh7sxgg");'
+        ></div>
+        <div>
+          <p class="text-white text-base font-medium leading-normal">Unix Time Converter</p>
+          <p class="text-[#90bbcb] text-sm font-normal leading-normal">Convert Unix timestamps to human-readable dates and vice versa.</p>
         </div>
-        <footer class="flex justify-center">
-          <div class="flex max-w-[960px] flex-1 flex-col">
-            <footer class="flex flex-col gap-6 px-5 py-10 text-center @container">
-              <div class="flex flex-wrap items-center justify-center gap-6 @[480px]:flex-row @[480px]:justify-around">
-                <a class="text-[#90bbcb] text-base font-normal leading-normal min-w-40" href="#">Privacy Policy</a>
-                <a class="text-[#90bbcb] text-base font-normal leading-normal min-w-40" href="#">Terms of Service</a>
-                <a class="text-[#90bbcb] text-base font-normal leading-normal min-w-40" href="#">Contact Us</a>
-              </div>
-              <div class="flex flex-wrap justify-center gap-4">
-                <a href="#">
-                  <div class="text-[#90bbcb]" data-icon="TwitterLogo" data-size="24px" data-weight="regular">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                      <path
-                        d="M247.39,68.94A8,8,0,0,0,240,64H209.57A48.66,48.66,0,0,0,168.1,40a46.91,46.91,0,0,0-33.75,13.7A47.9,47.9,0,0,0,120,88v6.09C79.74,83.47,46.81,50.72,46.46,50.37a8,8,0,0,0-13.65,4.92c-4.31,47.79,9.57,79.77,22,98.18a110.93,110.93,0,0,0,21.88,24.2c-15.23,17.53-39.21,26.74-39.47,26.84a8,8,0,0,0-3.85,11.93c.75,1.12,3.75,5.05,11.08,8.72C53.51,229.7,65.48,232,80,232c70.67,0,129.72-54.42,135.75-124.44l29.91-29.9A8,8,0,0,0,247.39,68.94Zm-45,29.41a8,8,0,0,0-2.32,5.14C196,166.58,143.28,216,80,216c-10.56,0-18-1.4-23.22-3.08,11.51-6.25,27.56-17,37.88-32.48A8,8,0,0,0,92,169.08c-.47-.27-43.91-26.34-44-96,16,13,45.25,33.17,78.67,38.79A8,8,0,0,0,136,104V88a32,32,0,0,1,9.6-22.92A30.94,30.94,0,0,1,167.9,56c12.66.16,24.49,7.88,29.44,19.21A8,8,0,0,0,204.67,80h16Z"
-                      ></path>
-                    </svg>
-                  </div>
-                </a>
-                <a href="#">
-                  <div class="text-[#90bbcb]" data-icon="GithubLogo" data-size="24px" data-weight="regular">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
-                      <path
-                        d="M208.31,75.68A59.78,59.78,0,0,0,202.93,28,8,8,0,0,0,196,24a59.75,59.75,0,0,0-48,24H124A59.75,59.75,0,0,0,76,24a8,8,0,0,0-6.93,4,59.78,59.78,0,0,0-5.38,47.68A58.14,58.14,0,0,0,56,104v8a56.06,56.06,0,0,0,48.44,55.47A39.8,39.8,0,0,0,96,192v8H72a24,24,0,0,1-24-24A40,40,0,0,0,8,136a8,8,0,0,0,0,16,24,24,0,0,1,24,24,40,40,0,0,0,40,40H96v16a8,8,0,0,0,16,0V192a24,24,0,0,1,48,0v40a8,8,0,0,0,16,0V192a39.8,39.8,0,0,0-8.44-24.53A56.06,56.06,0,0,0,216,112v-8A58.14,58.14,0,0,0,208.31,75.68ZM200,112a40,40,0,0,1-40,40H112a40,40,0,0,1-40-40v-8a41.74,41.74,0,0,1,6.9-22.48A8,8,0,0,0,80,73.83a43.81,43.81,0,0,1,.79-33.58,43.88,43.88,0,0,1,32.32,20.06A8,8,0,0,0,119.82,64h32.35a8,8,0,0,0,6.74-3.69,43.87,43.87,0,0,1,32.32-20.06A43.81,43.81,0,0,1,192,73.83a8.09,8.09,0,0,0,1,7.65A41.72,41.72,0,0,1,200,104Z"
-                      ></path>
-                    </svg>
-                  </div>
-                </a>
-              </div>
-              <p class="text-[#90bbcb] text-base font-normal leading-normal">@2024 DevTools. All rights reserved.</p>
-            </footer>
-          </div>
-        </footer>
-      </div>
+      </a>
+      <a href="/json-validator" hx-get="/tools/json-validator" hx-target="#main-content" hx-push-url="/json-validator" class="flex flex-col gap-3 pb-3 cursor-pointer hover:opacity-80 transition-opacity">
+        <div
+          class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCxPHiQifhFiwRxXq8K3QmOfSfZZnPjEX2_7VR66TPJcofwcQM4BBMV4PFk92SQc0GdSTmR99xXgtTUkJoM-H8AZo3sE6cYKIVsOUpz5l2z4qK0cpwQ2ujmL89pjZS3cTP24YU3_7EDNjGpsYXOv43psNMZX6NyZkKeoLv0vCySpMIHgCT_v6p1LiC_WE6BWCI0ZAQtWoXOuKCWB6OxU05rwpyPIS2zXT4-Vin4eSN-F3eIx-4Zb_3Q1BVlXlPnjY46Ksy2W4gJ-2A");'
+        ></div>
+        <div>
+          <p class="text-white text-base font-medium leading-normal">JSON Validator/Converter</p>
+          <p class="text-[#90bbcb] text-sm font-normal leading-normal">Validate and convert JSON data with ease.</p>
+        </div>
+      </a>
+      <a href="/ip" hx-get="/tools/ip" hx-target="#main-content" hx-push-url="/ip" class="flex flex-col gap-3 pb-3 cursor-pointer hover:opacity-80 transition-opacity">
+        <div
+          class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAAJSQgu5iQsxgHs3SIHDus_JwmzEBK6wRJq1R8Xx_RVrRiOYer2z9_0nt2E8Dpy8POPVQQSxK086Bz2VT3f0cN6LUdJ9KrdbeXUpqeP1J51W1qFuG6n9rSQ_MQ5LphxAdUFN1uB5EVn6RsCfPDRS3egCBs1i3vitNb9tsDMliAVitXGU9cUgAiMVUyHcI72tk3FTUWMKse3LMi7RR9d5pS0Dprip--6Z88dY70znwX8YI_LIrNrBtVzaqopEi5Vism2Gou6eZBT4w");'
+        ></div>
+        <div>
+          <p class="text-white text-base font-medium leading-normal">IP Check</p>
+          <p class="text-[#90bbcb] text-sm font-normal leading-normal">Check for IP address and DNS information.</p>
+        </div>
+      </a>
+      <a href="/css-linter" hx-get="/tools/css-linter" hx-target="#main-content" hx-push-url="/css-linter" class="flex flex-col gap-3 pb-3 cursor-pointer hover:opacity-80 transition-opacity">
+        <div
+          class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCbvg0ChdzeLOfCwbv5yZmkaA5t0MpoWwn4G4iTNK6xEdMfOymrTZ7xg1Kx45idEz7vfQMZ19EWlBTS415BnQpImtt1nsrbbZVt-_DxdkAoA9v_k2DSjT6ejwHmoPUmz_Q9GbIfSNWE88J1lpDt3hzjy5rMXxbeJ5HIfqCob-I7RZS4KVXTB6wEbfV10zLb1Au-3rnqodJc8V7GNbxWhYb9EurOWZVdeuJ4_muVLhnQsKMvfdgxNc0udRM52K6fgjOK6KuZ0e_O7Uk");'
+        ></div>
+        <div>
+          <p class="text-white text-base font-medium leading-normal">CSS Linter</p>
+          <p class="text-[#90bbcb] text-sm font-normal leading-normal">Lint your CSS code for syntax errors and best practices.</p>
+        </div>
+      </a>
+      <a href="/dns-leak" hx-get="/tools/dns-leak" hx-target="#main-content" hx-push-url="/dns-leak" class="flex flex-col gap-3 pb-3 cursor-pointer hover:opacity-80 transition-opacity">
+        <div
+          class="w-full bg-center bg-no-repeat aspect-square bg-cover rounded-xl"
+          style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBqpKjqF2j5Q4eHxhW3sNQz7L8YkV9rJ3MdgE2hK5fX8Tp0qRs1uN2YvZwP9CbMxVgH4fJ6tE3QsL7oI1AzR8NmD0XyW5vU4hG2fK8pL3bS9jQ6cR7eA1oT4iF5xM0nB8sY2qZ3vC6hL9pE1rN4oS7uA8gT2jR5wX0bQ3eK6hM1vC4pL9sU2fY5oI8nR3qA6tX7bE0jP1cL4hG9mV8eQ2rS5fT0oY3wN6pK1vC8gM4bJ7hE2iR5uA9sL3xQ0fY6oP1nT8rG4jC7eW2vS5kH1qL9bA6tX3mI0pR8uY4oF7sN2eK5hC6wL1jQ9vA3bT8rG0pM4xS7iY2oE5nH1fK8qL6cR3uW9vA4pT7jS0oN5eG2hI8bY1xL6rQ3fM9vC4oP8tW7uS1nA5hE2gK0qL6jR3xI9vT4bF8oC7mY1pS5eN2qA6hL0tW9rU3jG8vC4oP1bY7sI2eF5nH6xK9qL3rA8oT0mW1vS4jP7cE2gU5hN9bY6oI1fL8rQ3xA4vT0eC7mS1nH5qP9oK2jW6gL8rU3bY4vI1cF0eN7sA9qP5oT6hM2jR8xL1fW4vS3eC0gU7nY9bI5oH6qA2rP8jK1vT4xL0mW3sE7cF9oN1bY5hG2qU8pI6vA4rS0jL3eC7mX9oT1nH5qP6bY2vI8fW4sU0jR3gA7oK9eN1cL5hM6qP2xT8vS4bY0oI3rF7jW1mU5eC6pA9hN2qL8vT0gS3oK7xI1bY4fE6nH9rP5oA2jW8vC0mL1sU7qT3eG6hI9bY4oF2rN8pK5xA1vS7jL0cW3oE9qH6tI2bY5mR8pA4uF1vS0jG7oN3eC6hL9bY2qP8xI5rT1vA4oW7sK0jF3eN6hM9qP2bY8vI1cS5rL7gU0oT4jA6xW3eC9hN2qP5bY7vI8fS1rL0oA4jT6mW3eC9hN5qP2bY8vI1cL7rS0oT4jA6xW3eG9hM2qU5bY8vI1fS7rL0oA4jT6mC3eW9hN2qP5bY8vI1cL7gS0oT4jA6xW3eF9hM2qN5bY8vI1rS7pL0oA4jT6mC3eW9hG2qU5bY8vI1fL7gS0oT4jA6xW3eC9hM2qP5bY8vI1rS7oL0jA4tT6mC3eW9hN2qU5bY8vI1fL7gS0oT4jA6xW3eC9hM2qP5bY");'
+        ></div>
+        <div>
+          <p class="text-white text-base font-medium leading-normal">DNS Leak Check</p>
+          <p class="text-[#90bbcb] text-sm font-normal leading-normal">Check your DNS servers for potential leaks and privacy issues.</p>
+        </div>
+      </a>
     </div>
-  </body>
-</html>
+  </div>
+</div>
+{{end}}

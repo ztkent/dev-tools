@@ -13,6 +13,7 @@ import (
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/ztkent/dev-tools/internal/routes"
 	"github.com/ztkent/replay"
 )
 
@@ -69,11 +70,26 @@ func main() {
 
 func DefineRoutes(r *chi.Mux, cache *replay.Cache) {
 	// Apply visitor tracking middleware
-	r.Use(TagVistorsMiddleware)
+	r.Use(routes.TagVistorsMiddleware)
 
 	// Static routes
-	r.Get("/", HomePageHandler())
-	r.Get("/static/*", StaticFileHandler())
+	r.Get("/", routes.HomePageHandler())
+	r.Get("/static/*", routes.StaticFileHandler())
+
+	// Tool page routes (for direct URL access)
+	r.Get("/unix-time", routes.ToolPageHandler("unix-time"))
+	r.Get("/json-validator", routes.ToolPageHandler("json-validator"))
+	r.Get("/ip", routes.ToolPageHandler("ip"))
+	r.Get("/css-linter", routes.ToolPageHandler("css-linter"))
+	r.Get("/dns-leak", routes.ToolPageHandler("dns-leak"))
+
+	// Dynamically load tool content
+	r.Get("/tools/unix-time", routes.ToolContentHandler("unix-time"))
+	r.Get("/tools/json-validator", routes.ToolContentHandler("json-validator"))
+	r.Get("/tools/ip", routes.ToolContentHandler("ip"))
+	r.Get("/tools/css-linter", routes.ToolContentHandler("css-linter"))
+	r.Get("/tools/dns-leak", routes.ToolContentHandler("dns-leak"))
+	r.Get("/tools/index", routes.ToolContentHandler("index"))
 
 	// API routes
 	r.Route("/api", func(r chi.Router) {

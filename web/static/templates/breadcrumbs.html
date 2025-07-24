@@ -1,0 +1,24 @@
+{{define "breadcrumbs"}}
+{{if gt (len .Breadcrumbs) 1}}
+<nav class="flex px-10 py-2 border-b border-solid border-b-[#223f49]" aria-label="Breadcrumb">
+  <ol class="flex items-center space-x-2 text-sm">
+    {{range $index, $crumb := .Breadcrumbs}}
+      {{if ne $index 0}}
+        <li class="text-[#90bbcb]">/</li>
+      {{end}}
+      <li>
+        {{if eq $index (sub (len $.Breadcrumbs) 1)}}
+          <span class="text-white font-medium">{{$crumb.Name}}</span>
+        {{else}}
+          {{if eq $crumb.URL "/"}}
+            <a href="{{$crumb.URL}}" hx-get="/tools/index" hx-target="#main-content" hx-push-url="{{$crumb.URL}}" class="text-[#90bbcb] hover:text-white transition-colors">{{$crumb.Name}}</a>
+          {{else}}
+            <a href="{{$crumb.URL}}" hx-get="/tools{{$crumb.URL}}" hx-target="#main-content" hx-push-url="{{$crumb.URL}}" class="text-[#90bbcb] hover:text-white transition-colors">{{$crumb.Name}}</a>
+          {{end}}
+        {{end}}
+      </li>
+    {{end}}
+  </ol>
+</nav>
+{{end}}
+{{end}}

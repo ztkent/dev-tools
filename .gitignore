@@ -34,3 +34,6 @@ certs/tools_cert.pem
 .gitignore
 certs/tools_key.pem
 .vscode/launch.json
+dev-tools
+
+.github/instructions/*.md

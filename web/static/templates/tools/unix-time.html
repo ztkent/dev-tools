@@ -1,0 +1,36 @@
+{{define "content"}}
+<div class="px-40 flex flex-1 justify-center py-5">
+  <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+    <h2 class="text-white tracking-light text-[28px] font-bold leading-tight px-4 text-left pb-3 pt-5">Unix Timestamp Converter</h2>
+    <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+      <label class="flex flex-col min-w-40 flex-1">
+        <p class="text-white text-base font-medium leading-normal pb-2">Unix Timestamp</p>
+        <input
+          placeholder="Enter Unix timestamp"
+          class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border-none bg-[#223f49] focus:border-none h-14 placeholder:text-[#90bbcb] p-4 text-base font-normal leading-normal"
+          value=""
+        />
+      </label>
+    </div>
+    <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+      <label class="flex flex-col min-w-40 flex-1">
+        <p class="text-white text-base font-medium leading-normal pb-2">Human-readable date</p>
+        <input
+          placeholder="Enter date"
+          class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border-none bg-[#223f49] focus:border-none h-14 placeholder:text-[#90bbcb] p-4 text-base font-normal leading-normal"
+          value=""
+        />
+      </label>
+    </div>
+    <div class="flex px-4 py-3 justify-start">
+      <button
+        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223f49] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+      >
+        <span class="truncate">Copy</span>
+      </button>
+    </div>
+    <h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Current Unix Timestamp</h3>
+    <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">1717075200</p>
+  </div>
+</div>
+{{end}}
