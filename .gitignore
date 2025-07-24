@@ -30,3 +30,7 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+certs/tools_cert.pem
+.gitignore
+certs/tools_key.pem
+.vscode/launch.json
