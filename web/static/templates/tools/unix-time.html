@@ -1,36 +1,222 @@
 {{define "content"}}
-<div class="px-40 flex flex-1 justify-center py-5">
-  <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-    <h2 class="text-white tracking-light text-[28px] font-bold leading-tight px-4 text-left pb-3 pt-5">Unix Timestamp Converter</h2>
-    <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-      <label class="flex flex-col min-w-40 flex-1">
-        <p class="text-white text-base font-medium leading-normal pb-2">Unix Timestamp</p>
-        <input
-          placeholder="Enter Unix timestamp"
-          class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border-none bg-[#223f49] focus:border-none h-14 placeholder:text-[#90bbcb] p-4 text-base font-normal leading-normal"
-          value=""
-        />
-      </label>
+<div class="unix-time-container py-8">
+  <!-- Page Header -->
+  <div class="text-center mb-8">
+    <h1 class="text-white text-4xl font-bold mb-4">Unix Timestamp Converter</h1>
+    <p class="text-[#90bbcb] text-lg">Convert Unix timestamps to human-readable dates and vice versa. Professional tool for developers and system administrators.</p>
+  </div>
+
+  <!-- Current Unix Timestamp -->
+  <div class="current-timestamp">
+    <div class="flex justify-between items-center mb-4">
+      <h2 class="text-white text-xl font-semibold">Current Unix Timestamp</h2>
+      <div class="timezone-toggle">
+        <button id="timezone-toggle-btn" class="timezone-toggle-button">
+          <span id="timezone-label">Local Time</span>
+          <span class="timezone-switch-icon">⇄</span>
+        </button>
+      </div>
     </div>
-    <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-      <label class="flex flex-col min-w-40 flex-1">
-        <p class="text-white text-base font-medium leading-normal pb-2">Human-readable date</p>
-        <input
-          placeholder="Enter date"
-          class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border-none bg-[#223f49] focus:border-none h-14 placeholder:text-[#90bbcb] p-4 text-base font-normal leading-normal"
-          value=""
-        />
-      </label>
-    </div>
-    <div class="flex px-4 py-3 justify-start">
-      <button
-        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223f49] text-white text-sm font-bold leading-normal tracking-[0.015em]"
+    <div class="current-timestamp-value" id="current-timestamp">1753636157</div>
+    <div class="current-timestamp-date" id="current-date">Sunday, July 27th 2025, 1:09:17 PM</div>
+    <div class="current-timestamp-timezone" id="current-timezone">PST (UTC-8)</div>
+  </div>
+
+  <!-- Timestamp to Date Conversion -->
+  <div class="section-card">
+    <h2 class="section-title">Timestamp to Date</h2>
+    
+    <div class="input-group">
+      <label class="input-label" for="timestamp-input">Unix Timestamp</label>
+      <input 
+        type="text" 
+        id="timestamp-input" 
+        class="input-field" 
+        placeholder="Enter Unix timestamp"
       >
-        <span class="truncate">Copy</span>
-      </button>
+      <div class="format-hint">Supports seconds, milliseconds, microseconds and nanoseconds</div>
+      <div id="timestamp-error" class="error-message" style="display: none;"></div>
     </div>
-    <h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Current Unix Timestamp</h3>
-    <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">1717075200</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="output-display">
+        <div class="output-label">UTC Time:</div>
+        <div class="conversion-result">
+          <div class="output-value" id="utc-output"></div>
+          <button class="copy-button" data-copy-target="utc-output">Copy</button>
+        </div>
+      </div>
+      
+      <div class="output-display">
+        <div class="output-label">Local Time:</div>
+        <div class="conversion-result">
+          <div class="output-value" id="local-output"></div>
+          <button class="copy-button" data-copy-target="local-output">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Date to Timestamp Conversion -->
+  <div class="section-card">
+    <h2 class="section-title">Date to Timestamp</h2>
+    
+    <div class="date-inputs-grid">
+      <div class="input-group">
+        <label class="input-label" for="year-input">Year</label>
+        <input type="number" id="year-input" class="input-field" min="1970" max="2038" placeholder="2025">
+      </div>
+      
+      <div class="input-group">
+        <label class="input-label" for="month-input">Month</label>
+        <input type="number" id="month-input" class="input-field" min="1" max="12" placeholder="7">
+      </div>
+      
+      <div class="input-group">
+        <label class="input-label" for="day-input">Day</label>
+        <input type="number" id="day-input" class="input-field" min="1" max="31" placeholder="27">
+      </div>
+      
+      <div class="input-group">
+        <label class="input-label" for="hour-input">Hour</label>
+        <input type="number" id="hour-input" class="input-field" min="0" max="23" placeholder="13">
+      </div>
+      
+      <div class="input-group">
+        <label class="input-label" for="minute-input">Min</label>
+        <input type="number" id="minute-input" class="input-field" min="0" max="59" placeholder="9">
+      </div>
+      
+      <div class="input-group">
+        <label class="input-label" for="second-input">Sec</label>
+        <input type="number" id="second-input" class="input-field" min="0" max="59" placeholder="17">
+      </div>
+    </div>
+
+    <div id="date-error" class="error-message" style="display: none;"></div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+      <div class="output-display">
+        <div class="output-label">Unix Timestamp:</div>
+        <div class="conversion-result">
+          <div class="output-value" id="timestamp-output"></div>
+          <button class="copy-button" data-copy-target="timestamp-output">Copy</button>
+        </div>
+      </div>
+      
+      <div class="output-display">
+        <div class="output-label">Milliseconds:</div>
+        <div class="conversion-result">
+          <div class="output-value" id="milliseconds-output"></div>
+          <button class="copy-button" data-copy-target="milliseconds-output">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Current Epoch Formats -->
+  <div class="section-card">
+    <h2 class="section-title">Standard Time Formats</h2>
+    
+    <div class="format-outputs-grid">
+      <div class="format-output-row">
+        <div class="format-label">Date</div>
+        <div class="format-value" id="format-date"></div>
+        <button class="copy-button" data-copy-target="format-date">Copy</button>
+      </div>
+      
+      <div class="format-output-row">
+        <div class="format-label">ISO 8601</div>
+        <div class="format-value" id="format-iso8601"></div>
+        <button class="copy-button" data-copy-target="format-iso8601">Copy</button>
+      </div>
+      
+      <div class="format-output-row">
+        <div class="format-label">RFC 822, 1036, 1123, 2822</div>
+        <div class="format-value" id="format-rfc822"></div>
+        <button class="copy-button" data-copy-target="format-rfc822">Copy</button>
+      </div>
+      
+      <div class="format-output-row">
+        <div class="format-label">RFC 2822</div>
+        <div class="format-value" id="format-rfc2822"></div>
+        <button class="copy-button" data-copy-target="format-rfc2822">Copy</button>
+      </div>
+      
+      <div class="format-output-row">
+        <div class="format-label">RFC 3339</div>
+        <div class="format-value" id="format-rfc3339"></div>
+        <button class="copy-button" data-copy-target="format-rfc3339">Copy</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Time Units Reference -->
+  <div class="section-card">
+    <h2 class="section-title">Time Units Reference</h2>
+    
+    <div class="time-units-table-container">
+      <table class="time-units-table">
+        <thead>
+          <tr>
+            <th>Time Period</th>
+            <th>Seconds</th>
+            <th>Minutes</th>
+            <th>Hours</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 Minute</td>
+            <td>60</td>
+            <td>1</td>
+            <td>0.017</td>
+          </tr>
+          <tr>
+            <td>1 Hour</td>
+            <td>3,600</td>
+            <td>60</td>
+            <td>1</td>
+          </tr>
+          <tr>
+            <td>1 Day</td>
+            <td>86,400</td>
+            <td>1,440</td>
+            <td>24</td>
+          </tr>
+          <tr>
+            <td>1 Week</td>
+            <td>604,800</td>
+            <td>10,080</td>
+            <td>168</td>
+          </tr>
+          <tr>
+            <td>1 Month (30.44 days)</td>
+            <td>2,629,744</td>
+            <td>43,829.067</td>
+            <td>730.484</td>
+          </tr>
+          <tr>
+            <td>1 Year (365.24 days)</td>
+            <td>31,556,926</td>
+            <td>525,948.767</td>
+            <td>8,765.813</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
+
+<script>
+// Initialize Unix Time Converter when this content loads
+(function() {
+  // Wait for the next tick to ensure DOM is ready
+  setTimeout(function() {
+    if (window.initUnixTimeConverter) {
+      window.initUnixTimeConverter();
+    }
+  }, 0);
+})();
+</script>
 {{end}}
