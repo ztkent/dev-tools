@@ -2,14 +2,14 @@
 <div class="unix-time-container py-8">
   <!-- Page Header -->
   <div class="text-center mb-8">
-    <h1 class="text-white text-4xl font-bold mb-4">Unix Timestamp Converter</h1>
-    <p class="text-[#90bbcb] text-lg">Convert Unix timestamps to human-readable dates and vice versa. Professional tool for developers and system administrators.</p>
+    <h1 class="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Unix Timestamp Converter</h1>
+    <p class="text-[#90bbcb] text-sm sm:text-base md:text-lg px-4">Convert Unix timestamps to standard human-readable dates</p>
   </div>
 
   <!-- Current Unix Timestamp -->
   <div class="current-timestamp">
-    <div class="flex justify-between items-center mb-4">
-      <h2 class="text-white text-xl font-semibold">Current Unix Timestamp</h2>
+    <div class="flex flex-col sm:flex-row justify-between items-center mb-4 gap-4">
+      <h2 class="text-white text-xl font-semibold text-center sm:text-left">Current Unix Timestamp</h2>
       <div class="timezone-toggle">
         <button id="timezone-toggle-btn" class="timezone-toggle-button">
           <span id="timezone-label">Local Time</span>
@@ -38,7 +38,7 @@
       <div id="timestamp-error" class="error-message" style="display: none;"></div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
       <div class="output-display">
         <div class="output-label">UTC Time:</div>
         <div class="conversion-result">
@@ -95,7 +95,7 @@
 
     <div id="date-error" class="error-message" style="display: none;"></div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 mt-4">
       <div class="output-display">
         <div class="output-label">Unix Timestamp:</div>
         <div class="conversion-result">

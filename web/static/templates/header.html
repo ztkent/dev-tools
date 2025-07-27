@@ -1,4 +1,4 @@
-<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#223f49] px-10 py-3">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#223f49] px-4 lg:px-10 py-3">
   <div class="flex items-center gap-4 text-white">
     <div class="size-4">
       <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,16 +12,18 @@
       <a href="/" hx-get="/tools/index" hx-target="#main-content" hx-push-url="/">DevTools</a>
     </h2>
   </div>
-  <div class="flex flex-1 justify-end gap-8">
+  
+  <!-- Desktop Navigation -->
+  <div class="hidden lg:flex flex-1 justify-end gap-8">
     <div class="flex items-center gap-9">
-      <a class="text-white text-sm font-medium leading-normal" href="/unix-time" hx-get="/tools/unix-time" hx-target="#main-content" hx-push-url="/unix-time">Unix Time Converter</a>
-      <a class="text-white text-sm font-medium leading-normal" href="/json-validator" hx-get="/tools/json-validator" hx-target="#main-content" hx-push-url="/json-validator">JSON Validator</a>
-      <a class="text-white text-sm font-medium leading-normal" href="/ip" hx-get="/tools/ip" hx-target="#main-content" hx-push-url="/ip">IP/DNS Check</a>
-      <a class="text-white text-sm font-medium leading-normal" href="/dns-leak" hx-get="/tools/dns-leak" hx-target="#main-content" hx-push-url="/dns-leak">DNS Leak</a>
-      <a class="text-white text-sm font-medium leading-normal" href="/css-linter" hx-get="/tools/css-linter" hx-target="#main-content" hx-push-url="/css-linter">CSS Linter</a>
+      <a class="text-white text-sm font-medium leading-normal hover:text-[#0bb1ee] transition-colors" href="/unix-time" hx-get="/tools/unix-time" hx-target="#main-content" hx-push-url="/unix-time">Unix Time Converter</a>
+      <a class="text-white text-sm font-medium leading-normal hover:text-[#0bb1ee] transition-colors" href="/json-validator" hx-get="/tools/json-validator" hx-target="#main-content" hx-push-url="/json-validator">JSON Validator</a>
+      <a class="text-white text-sm font-medium leading-normal hover:text-[#0bb1ee] transition-colors" href="/ip" hx-get="/tools/ip" hx-target="#main-content" hx-push-url="/ip">IP/DNS Check</a>
+      <a class="text-white text-sm font-medium leading-normal hover:text-[#0bb1ee] transition-colors" href="/dns-leak" hx-get="/tools/dns-leak" hx-target="#main-content" hx-push-url="/dns-leak">DNS Leak</a>
+      <a class="text-white text-sm font-medium leading-normal hover:text-[#0bb1ee] transition-colors" href="/css-linter" hx-get="/tools/css-linter" hx-target="#main-content" hx-push-url="/css-linter">CSS Linter</a>
     </div>
     <button
-      class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#223f49] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+      class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#223f49] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-[#2a4a54] transition-colors"
     >
       <div class="text-white" data-icon="User" data-size="20px" data-weight="regular">
         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
@@ -32,4 +34,87 @@
       </div>
     </button>
   </div>
+
+  <!-- Mobile Navigation -->
+  <div class="flex lg:hidden items-center gap-4">
+    <button
+      class="flex cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#223f49] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5 hover:bg-[#2a4a54] transition-colors"
+    >
+      <div class="text-white" data-icon="User" data-size="20px" data-weight="regular">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256">
+          <path
+            d="M230.92,212c-15.23-26.33-38.7-45.21-66.09-54.16a72,72,0,1,0-73.66,0C63.78,166.78,40.31,185.66,25.08,212a8,8,0,1,0,13.85,8c18.84-32.56,52.14-52,89.07-52s70.23,19.44,89.07,52a8,8,0,1,0,13.85-8ZM72,96a56,56,0,1,1,56,56A56.06,56.06,0,0,1,72,96Z"
+          ></path>
+        </svg>
+      </div>
+    </button>
+    <button 
+      id="mobile-menu-button"
+      class="flex cursor-pointer items-center justify-center w-10 h-10 bg-[#223f49] text-white rounded-lg hover:bg-[#2a4a54] transition-colors"
+      onclick="toggleMobileMenu()"
+    >
+      <svg id="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+        <path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z"></path>
+      </svg>
+      <svg id="close-icon" class="hidden" xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+        <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path>
+      </svg>
+    </button>
+  </div>
 </header>
+
+<!-- Mobile Dropdown Menu -->
+<div id="mobile-menu" class="hidden lg:hidden bg-[#223f49] border-b border-[#2a4a54] px-4 py-2">
+  <div class="flex flex-col space-y-4 py-4">
+    <a class="text-white text-base font-medium leading-normal hover:text-[#0bb1ee] transition-colors py-2 px-2 rounded-lg hover:bg-[#2a4a54]" href="/unix-time" hx-get="/tools/unix-time" hx-target="#main-content" hx-push-url="/unix-time" onclick="closeMobileMenu()">Unix Time Converter</a>
+    <a class="text-white text-base font-medium leading-normal hover:text-[#0bb1ee] transition-colors py-2 px-2 rounded-lg hover:bg-[#2a4a54]" href="/json-validator" hx-get="/tools/json-validator" hx-target="#main-content" hx-push-url="/json-validator" onclick="closeMobileMenu()">JSON Validator</a>
+    <a class="text-white text-base font-medium leading-normal hover:text-[#0bb1ee] transition-colors py-2 px-2 rounded-lg hover:bg-[#2a4a54]" href="/ip" hx-get="/tools/ip" hx-target="#main-content" hx-push-url="/ip" onclick="closeMobileMenu()">IP/DNS Check</a>
+    <a class="text-white text-base font-medium leading-normal hover:text-[#0bb1ee] transition-colors py-2 px-2 rounded-lg hover:bg-[#2a4a54]" href="/dns-leak" hx-get="/tools/dns-leak" hx-target="#main-content" hx-push-url="/dns-leak" onclick="closeMobileMenu()">DNS Leak</a>
+    <a class="text-white text-base font-medium leading-normal hover:text-[#0bb1ee] transition-colors py-2 px-2 rounded-lg hover:bg-[#2a4a54]" href="/css-linter" hx-get="/tools/css-linter" hx-target="#main-content" hx-push-url="/css-linter" onclick="closeMobileMenu()">CSS Linter</a>
+  </div>
+</div>
+
+<script>
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  
+  if (menu.classList.contains('hidden')) {
+    menu.classList.remove('hidden');
+    menuIcon.classList.add('hidden');
+    closeIcon.classList.remove('hidden');
+  } else {
+    menu.classList.add('hidden');
+    menuIcon.classList.remove('hidden');
+    closeIcon.classList.add('hidden');
+  }
+}
+
+function closeMobileMenu() {
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+  
+  menu.classList.add('hidden');
+  menuIcon.classList.remove('hidden');
+  closeIcon.classList.add('hidden');
+}
+
+// Close mobile menu when window is resized to desktop size
+window.addEventListener('resize', function() {
+  if (window.innerWidth >= 1024) {
+    closeMobileMenu();
+  }
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+  const menu = document.getElementById('mobile-menu');
+  const button = document.getElementById('mobile-menu-button');
+  
+  if (!menu.contains(event.target) && !button.contains(event.target)) {
+    closeMobileMenu();
+  }
+});
+</script>

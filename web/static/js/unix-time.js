@@ -570,19 +570,4 @@
             window.unixTimeConverterInstance = new UnixTimeConverter();
         }
     };
-
-    // Initialize when DOM is loaded
-    document.addEventListener('DOMContentLoaded', () => {
-        window.initUnixTimeConverter();
-    });
-
-    // Initialize when HTMX loads content
-    document.addEventListener('htmx:afterSettle', () => {
-        window.initUnixTimeConverter();
-    });
-
-    // Also try htmx:load event as a fallback
-    document.addEventListener('htmx:load', () => {
-        window.initUnixTimeConverter();
-    });
 })();
