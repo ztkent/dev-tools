@@ -53,7 +53,8 @@
 }
 
 .copy-button:hover {
-  background: rgba(11, 177, 238, 0.9);
+  background: #0bb1ee;
+  color: #101e23;
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(11, 177, 238, 0.3);
 }
@@ -248,10 +249,10 @@
 }
 
 .copy-button {
-  background: #0bb1ee;
+  background: transparent;
   border: 1px solid #0bb1ee;
   border-radius: 8px;
-  color: #101e23;
+  color: #0bb1ee;
   padding: 0.875rem 1rem;
   font-size: 0.875rem;
   font-weight: 600;

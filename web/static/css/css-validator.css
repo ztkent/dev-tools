@@ -1,0 +1,479 @@
+/* CSS Validator Tool Specific Styles */
+
+.css-validator-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* JSON Validator Container - Same Width Settings */
+.json-validator-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Button variants for CSS Validator */
+.btn-success {
+  background: transparent !important;
+  border-color: #22c55e !important;
+  color: #22c55e !important;
+}
+
+.btn-success:hover {
+  background: #22c55e !important;
+  color: #101e23 !important;
+}
+
+.btn-warning {
+  background: transparent !important;
+  border-color: #eab308 !important;
+  color: #eab308 !important;
+}
+
+.btn-warning:hover {
+  background: #eab308 !important;
+  color: #101e23 !important;
+}
+
+.btn-purple {
+  background: transparent !important;
+  border-color: #a855f7 !important;
+  color: #a855f7 !important;
+}
+
+.btn-purple:hover {
+  background: #a855f7 !important;
+  color: #101e23 !important;
+}
+
+.btn-danger {
+  background: transparent !important;
+  border-color: #dc2626 !important;
+  color: #dc2626 !important;
+}
+
+.btn-danger:hover {
+  background: #dc2626 !important;
+  color: #101e23 !important;
+}
+
+/* Input and textarea focus states */
+.css-validator-container textarea:focus,
+.css-validator-container input:focus,
+.css-validator-container select:focus {
+  outline: none;
+  border-color: #0bb1ee;
+  box-shadow: 0 0 0 2px rgba(11, 177, 238, 0.2);
+}
+
+.css-validator-container textarea::placeholder,
+.css-validator-container input::placeholder {
+  color: #90bbcb;
+}
+
+/* Copy button enhancements */
+.copy-button:hover {
+  background: #0bb1ee;
+  color: #101e23;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(11, 177, 238, 0.3);
+}
+
+.copy-button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 6px rgba(11, 177, 238, 0.3);
+}
+
+.copy-button.copied {
+  background: #4ade80 !important;
+  border-color: #4ade80 !important;
+  color: #101e23 !important;
+}
+
+.copy-button.loading {
+  background: #90bbcb !important;
+  border-color: #90bbcb !important;
+  color: #101e23 !important;
+  cursor: not-allowed;
+}
+
+/* Validation result animations */
+.validation-success {
+  border-color: #22c55e;
+  animation: fadeInSuccess 0.3s ease-out;
+}
+
+.validation-error {
+  border-color: #ef4444;
+  animation: fadeInError 0.3s ease-out;
+}
+
+@keyframes fadeInSuccess {
+  from {
+    opacity: 0;
+    background-color: rgba(34, 197, 94, 0.1);
+  }
+  to {
+    opacity: 1;
+    background-color: rgba(34, 197, 94, 0.2);
+  }
+}
+
+@keyframes fadeInError {
+  from {
+    opacity: 0;
+    background-color: rgba(239, 68, 68, 0.1);
+  }
+  to {
+    opacity: 1;
+    background-color: rgba(239, 68, 68, 0.2);
+  }
+}
+
+/* Color palette specific styles */
+.color-swatch {
+  min-width: 24px;
+  min-height: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.color-swatch:hover {
+  border-color: #0bb1ee;
+  transform: scale(1.1);
+}
+
+/* Issue severity indicators */
+.issue-error {
+  border-left-color: #ef4444;
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+.issue-warning {
+  border-left-color: #f59e0b;
+  background-color: rgba(245, 158, 11, 0.1);
+}
+
+.issue-info {
+  border-left-color: #3b82f6;
+  background-color: rgba(59, 130, 246, 0.1);
+}
+
+/* Performance metrics styling */
+.performance-metric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(144, 187, 203, 0.2);
+}
+
+.performance-metric:last-child {
+  border-bottom: none;
+}
+
+.performance-value {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: #0bb1ee;
+}
+
+/* Browser compatibility badges */
+.compatibility-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.compatibility-good {
+  background-color: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.compatibility-partial {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: #f59e0b;
+}
+
+.compatibility-poor {
+  background-color: rgba(239, 68, 68, 0.2);
+  color: #ef4444;
+}
+
+/* Statistics grid enhancements */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 1rem;
+  background: #101e23;
+  border: 1px solid rgba(144, 187, 203, 0.3);
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.stat-item:hover {
+  border-color: #0bb1ee;
+  transform: translateY(-2px);
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0bb1ee;
+  margin-bottom: 0.25rem;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: #90bbcb;
+  opacity: 0.8;
+}
+
+/* Loading states */
+.loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(11, 177, 238, 0.2);
+  border-radius: 50%;
+  border-top-color: #0bb1ee;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .css-validator-container {
+    padding: 0 0.5rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .copy-button {
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .performance-metric {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+
+/* Focus visible for accessibility */
+.css-validator-container button:focus-visible,
+.css-validator-container input:focus-visible,
+.css-validator-container textarea:focus-visible,
+.css-validator-container select:focus-visible {
+  outline: 2px solid #0bb1ee;
+  outline-offset: 2px;
+}
+
+/* Touch-friendly styling */
+.css-validator-container textarea,
+.css-validator-container input,
+.css-validator-container button {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.css-validator-container textarea {
+  -webkit-user-select: text;
+  -khtml-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Syntax highlighting for CSS (basic) */
+.css-syntax-highlight {
+  font-family: 'Courier New', monospace;
+  line-height: 1.5;
+}
+
+.css-selector {
+  color: #fbbf24;
+}
+
+.css-property {
+  color: #60a5fa;
+}
+
+.css-value {
+  color: #34d399;
+}
+
+.css-comment {
+  color: #9ca3af;
+  font-style: italic;
+}
+
+/* Export dialog styling */
+.export-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #223f49;
+  border: 1px solid rgba(144, 187, 203, 0.3);
+  border-radius: 12px;
+  padding: 2rem;
+  z-index: 1000;
+  min-width: 300px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+.export-dialog-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+/* Animation classes */
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+.fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Tooltip styling */
+.tooltip {
+  position: relative;
+  cursor: help;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #101e23;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  z-index: 1000;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Progress bar for analysis */
+.progress-bar {
+  width: 100%;
+  height: 4px;
+  background: rgba(144, 187, 203, 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #0bb1ee, #22c55e);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+/* Code mirror-like styling for better CSS display */
+.css-code-display {
+  background: #0d1117;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 1rem;
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  overflow-x: auto;
+  color: #e6edf3;
+}
+
+.css-code-display .line-numbers {
+  color: #6e7681;
+  margin-right: 1rem;
+  user-select: none;
+}
+
+/* Error boundary styling */
+.error-boundary {
+  padding: 2rem;
+  text-align: center;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  color: #ef4444;
+}
+
+.error-boundary h3 {
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.error-boundary p {
+  margin-bottom: 1rem;
+  opacity: 0.8;
+}
