@@ -1,27 +1,261 @@
 {{define "content"}}
-<div class="px-40 flex flex-1 justify-center py-5">
-    <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-    <h2 class="text-white tracking-light text-[28px] font-bold leading-tight px-4 text-center pb-3 pt-5">IP/DNS Check</h2>
-    <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4 text-center">Your public IP address is:</p>
-    <h1 class="text-white tracking-light text-[32px] font-bold leading-tight px-4 text-center pb-3 pt-6">203.0.113.195</h1>
-    <h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Additional Information</h3>
-    <div class="p-4 grid grid-cols-[20%_1fr] gap-x-6">
-        <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#315968] py-5">
-        <p class="text-[#90bbcb] text-sm font-normal leading-normal">ISP</p>
-        <p class="text-white text-sm font-normal leading-normal">TechConnect</p>
+<div class="ip-dns-container py-8">
+  <!-- Page Header -->
+  <div class="text-center mb-8">
+    <h1 class="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-4">IP Address & DNS Analysis</h1>
+    <p class="text-[#90bbcb] text-sm sm:text-base md:text-lg px-4">Comprehensive IP address analysis including geolocation, ISP details, security analysis, and DNS lookup tools</p>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-4">
+    <main class="main-content">
+        
+        <div class="tool-container">
+            <div class="tool-content space-y-6">
+                <!-- Current IP Information -->
+                <div class="bg-[#223f49] rounded-lg p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-white text-xl font-semibold">Your Current IP Address</h2>
+                        <button id="refresh-ip-btn" class="copy-button">Refresh IP</button>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <div class="flex items-center gap-4">
+                            <span class="text-[#90bbcb] text-sm">Current IP:</span>
+                            <span id="current-ip" class="text-white text-lg font-mono">Loading...</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Current IP Details (shown after refresh) -->
+                    <div id="current-ip-info" class="mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" style="display: none;">
+                        <div class="bg-[#101e23] rounded-lg p-3">
+                            <div class="text-[#90bbcb] text-xs font-semibold mb-1">Version</div>
+                            <div id="ip-version" class="text-white text-sm">-</div>
+                        </div>
+                        <div class="bg-[#101e23] rounded-lg p-3">
+                            <div class="text-[#90bbcb] text-xs font-semibold mb-1">Type</div>
+                            <div id="ip-type" class="text-white text-sm">-</div>
+                        </div>
+                        <div class="bg-[#101e23] rounded-lg p-3">
+                            <div class="text-[#90bbcb] text-xs font-semibold mb-1">Country</div>
+                            <div id="ip-country" class="text-white text-sm">-</div>
+                        </div>
+                        <div class="bg-[#101e23] rounded-lg p-3">
+                            <div class="text-[#90bbcb] text-xs font-semibold mb-1">ISP</div>
+                            <div id="ip-isp" class="text-white text-sm">-</div>
+                        </div>
+                        <div class="bg-[#101e23] rounded-lg p-3">
+                            <div class="text-[#90bbcb] text-xs font-semibold mb-1">Region</div>
+                            <div id="ip-region" class="text-white text-sm">-</div>
+                        </div>
+                        <div class="bg-[#101e23] rounded-lg p-3">
+                            <div class="text-[#90bbcb] text-xs font-semibold mb-1">City</div>
+                            <div id="ip-city" class="text-white text-sm">-</div>
+                        </div>
+                        <div class="bg-[#101e23] rounded-lg p-3">
+                            <div class="text-[#90bbcb] text-xs font-semibold mb-1">Organization</div>
+                            <div id="ip-org" class="text-white text-sm">-</div>
+                        </div>
+                        <div class="bg-[#101e23] rounded-lg p-3">
+                            <div class="text-[#90bbcb] text-xs font-semibold mb-1">ASN</div>
+                            <div id="ip-asn" class="text-white text-sm">-</div>
+                        </div>
+                        <div class="bg-[#101e23] rounded-lg p-3 md:col-span-2">
+                            <div class="text-[#90bbcb] text-xs font-semibold mb-1">Hostname</div>
+                            <div id="ip-hostname" class="text-white text-sm break-all">-</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IP Analysis Tool -->
+                <div class="bg-[#223f49] rounded-lg p-6">
+                    <h2 class="text-white text-xl font-semibold mb-4">Analyze IP Address</h2>
+                    
+                    <div class="mb-4">
+                        <div class="flex gap-3">
+                            <input 
+                                type="text" 
+                                id="ip-input" 
+                                placeholder="Enter IP address (e.g., 8.8.8.8, 2001:4860:4860::8888)" 
+                                class="flex-1 px-3 py-2 bg-[#101e23] border border-[#315968] rounded-lg text-white placeholder-[#90bbcb] focus:outline-none focus:border-[#4a9eff]"
+                            >
+                            <button id="analyze-ip-btn" class="copy-button">Analyze IP</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Loading/Error states -->
+                    <div id="ip-loading" class="text-[#90bbcb] text-sm py-4" style="display: none;">
+                        <div class="flex items-center gap-2">
+                            <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-[#4a9eff]"></div>
+                            Analyzing IP address...
+                        </div>
+                    </div>
+                    
+                    <div id="ip-error" class="text-red-400 text-sm py-2 bg-red-900/20 px-3 rounded" style="display: none;"></div>
+                    
+                    <!-- Results container -->
+                    <div id="ip-results" style="display: none;"></div>
+                </div>
+
+                <!-- DNS Lookup Tool -->
+                <div class="bg-[#223f49] rounded-lg p-6">
+                    <h2 class="text-white text-xl font-semibold mb-4">DNS Lookup</h2>
+                    
+                    <div class="mb-4">
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-3">
+                            <input 
+                                type="text" 
+                                id="domain-input" 
+                                placeholder="Enter domain (e.g., example.com)" 
+                                class="md:col-span-2 px-3 py-2 bg-[#101e23] border border-[#315968] rounded-lg text-white placeholder-[#90bbcb] focus:outline-none focus:border-[#4a9eff]"
+                            >
+                            <select 
+                                id="record-type" 
+                                class="px-3 py-2 bg-[#101e23] border border-[#315968] rounded-lg text-white focus:outline-none focus:border-[#4a9eff]"
+                            >
+                                <option value="ALL" selected>ALL (All Records)</option>
+                                <option value="A">A (IPv4)</option>
+                                <option value="AAAA">AAAA (IPv6)</option>
+                                <option value="MX">MX (Mail Exchange)</option>
+                                <option value="NS">NS (Name Server)</option>
+                                <option value="TXT">TXT (Text)</option>
+                                <option value="CNAME">CNAME (Canonical Name)</option>
+                                <option value="PTR">PTR (Pointer)</option>
+                                <option value="SOA">SOA (Start of Authority)</option>
+                            </select>
+                            <button id="dns-lookup-btn" class="copy-button">Lookup DNS Records</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Loading/Error states -->
+                    <div id="dns-loading" class="text-[#90bbcb] text-sm py-4" style="display: none;">
+                        <div class="flex items-center gap-2">
+                            <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-[#4a9eff]"></div>
+                            Performing DNS lookup...
+                        </div>
+                    </div>
+                    
+                    <div id="dns-error" class="text-red-400 text-sm py-2 bg-red-900/20 px-3 rounded" style="display: none;"></div>
+                    
+                    <!-- Results container -->
+                    <div id="dns-results" style="display: none;"></div>
+                </div>
+                
+                <!-- Traceroute Tool -->
+                <div class="bg-[#223f49] rounded-lg p-6">
+                    <h2 class="text-white text-xl font-semibold mb-4">Traceroute Analysis</h2>
+                    
+                    <div class="mb-4">
+                        <div class="flex gap-3">
+                            <input 
+                                type="text" 
+                                id="traceroute-input" 
+                                placeholder="Enter target (IP or domain)" 
+                                class="flex-1 px-3 py-2 bg-[#101e23] border border-[#315968] rounded-lg text-white placeholder-[#90bbcb] focus:outline-none focus:border-[#4a9eff]"
+                            >
+                            <button id="traceroute-btn" class="copy-button">Start Traceroute</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Loading/Error states -->
+                    <div id="traceroute-loading" class="text-[#90bbcb] text-sm py-4" style="display: none;">
+                        <div class="flex items-center gap-2">
+                            <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-[#4a9eff]"></div>
+                            Performing traceroute analysis...
+                        </div>
+                    </div>
+                    
+                    <div id="traceroute-error" class="text-red-400 text-sm py-2 bg-red-900/20 px-3 rounded" style="display: none;"></div>
+                    
+                    <!-- Results container -->
+                    <div id="traceroute-results" style="display: none;"></div>
+                </div>
+
+                <!-- Performance Analysis Tool -->
+                <div class="bg-[#223f49] rounded-lg p-6">
+                    <h2 class="text-white text-xl font-semibold mb-4">Network Performance Analysis</h2>
+                    
+                    <div class="mb-4">
+                        <div class="flex gap-3">
+                            <input 
+                                type="text" 
+                                id="performance-input" 
+                                placeholder="Enter target (IP or domain)" 
+                                class="flex-1 px-3 py-2 bg-[#101e23] border border-[#315968] rounded-lg text-white placeholder-[#90bbcb] focus:outline-none focus:border-[#4a9eff]"
+                            >
+                            <button id="performance-btn" class="copy-button">Analyze Performance</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Loading/Error states -->
+                    <div id="performance-loading" class="text-[#90bbcb] text-sm py-4" style="display: none;">
+                        <div class="flex items-center gap-2">
+                            <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-[#4a9eff]"></div>
+                            Analyzing network performance...
+                        </div>
+                    </div>
+                    
+                    <div id="performance-error" class="text-red-400 text-sm py-2 bg-red-900/20 px-3 rounded" style="display: none;"></div>
+                    
+                    <!-- Results container -->
+                    <div id="performance-results" style="display: none;"></div>
+                </div>
+
+                <!-- Bulk Analysis Tool -->
+                <div class="bg-[#223f49] rounded-lg p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-white text-xl font-semibold">Bulk IP Analysis</h2>
+                        <button id="bulk-btn" class="copy-button">Analyze IPs</button>
+                    </div>
+                    
+                    <div class="mb-4">
+                        <textarea 
+                            id="bulk-input" 
+                            placeholder="Enter IP addresses (one per line, max 100)&#10;Example:&#10;8.8.8.8&#10;1.1.1.1&#10;208.67.222.222"
+                            class="w-full h-32 px-3 py-2 bg-[#101e23] border border-[#315968] rounded-lg text-white placeholder-[#90bbcb] focus:outline-none focus:border-[#4a9eff] resize-vertical"
+                        ></textarea>
+                    </div>
+                    
+                    <!-- Loading/Error states -->
+                    <div id="bulk-loading" class="text-[#90bbcb] text-sm py-4" style="display: none;">
+                        <div class="flex items-center gap-2">
+                            <div class="animate-spin rounded-full h-4 w-4 border-b-2 border-[#4a9eff]"></div>
+                            Processing bulk analysis...
+                        </div>
+                    </div>
+                    
+                    <div id="bulk-error" class="text-red-400 text-sm py-2 bg-red-900/20 px-3 rounded" style="display: none;"></div>
+                    
+                    <!-- Results container -->
+                    <div id="bulk-results" style="display: none;"></div>
+                </div>
+
+                <!-- Analysis History -->
+                <div class="bg-[#223f49] rounded-lg p-6">
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-white text-xl font-semibold">Analysis History</h2>
+                    </div>
+                    
+                    <div id="history-container">
+                        <div class="max-h-96 overflow-y-auto">
+                            <div id="history-list">
+                                <div class="text-[#90bbcb] text-sm py-4 text-center">No analysis history yet</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-span-2 grid grid-cols-subgrid border-t border-t-[#315968] py-5">
-        <p class="text-[#90bbcb] text-sm font-normal leading-normal">Location</p>
-        <p class="text-white text-sm font-normal leading-normal">San Francisco, CA</p>
-        </div>
-    </div>
-    <div class="flex px-4 py-3 justify-center">
-        <button
-        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#0bb1ee] text-[#101e23] text-sm font-bold leading-normal tracking-[0.015em]"
-        >
-        <span class="truncate">Check your IP</span>
-        </button>
-    </div>
-    </div>
+    </main>
+  </div>
 </div>
+
+<script src="/static/js/ip-dns.js"></script>
+<script>
+    // Initialize the IP/DNS analyzer when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof initIPDNSAnalyzer === 'function') {
+            initIPDNSAnalyzer();
+        }
+    });
+</script>
 {{end}}

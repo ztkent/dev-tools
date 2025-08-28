@@ -93,5 +93,7 @@ func DefineRoutes(r *chi.Mux, cache *replay.Cache) {
 
 	// API routes
 	r.Route("/api", func(r chi.Router) {
+		// Register IP/DNS API routes
+		routes.RegisterIPAPIRoutes(r, cache)
 	})
 }

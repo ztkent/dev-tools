@@ -25,7 +25,6 @@ func getToolTitle(toolName string) string {
 		"json-validator": "JSON Validator - Dev Tools",
 		"ip":             "IP Check - Dev Tools",
 		"css-linter":     "CSS Linter - Dev Tools",
-		"dns-leak":       "DNS Leak Check - Dev Tools",
 	}
 
 	if title, exists := titles[toolName]; exists {
@@ -45,7 +44,6 @@ func getToolBreadcrumbs(toolName string) []Breadcrumb {
 		"json-validator": "JSON Validator",
 		"ip":             "IP Check",
 		"css-linter":     "CSS Linter",
-		"dns-leak":       "DNS Leak Check",
 	}
 
 	if name, exists := toolNames[toolName]; exists {

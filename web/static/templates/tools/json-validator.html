@@ -1,67 +1,177 @@
 {{define "content"}}
-<div class="px-40 flex flex-1 justify-center py-5">
-  <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
-    <div class="flex flex-wrap justify-between gap-3 p-4">
-      <p class="text-white tracking-light text-[32px] font-bold leading-tight min-w-72">JSON Validator/Converter</p>
-    </div>
-    <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-      <label class="flex flex-col min-w-40 flex-1">
-        <textarea
-          placeholder="Paste your JSON here"
-          class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border-none bg-[#223f49] focus:border-none min-h-36 placeholder:text-[#90bbcb] p-4 text-base font-normal leading-normal"
-        ></textarea>
-      </label>
-    </div>
-    <div class="flex justify-stretch">
-      <div class="flex flex-1 gap-3 flex-wrap px-4 py-3 justify-start">
-        <button
-          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#0bb1ee] text-[#101e23] text-sm font-bold leading-normal tracking-[0.015em]"
-        >
-          <span class="truncate">Validate JSON</span>
-        </button>
-        <button
-          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223f49] text-white text-sm font-bold leading-normal tracking-[0.015em]"
-        >
-          <span class="truncate">Convert</span>
-        </button>
+<div class="json-validator-container py-8">
+  <!-- Page Header -->
+  <div class="text-center mb-8">
+    <h1 class="text-white text-2xl sm:text-3xl md:text-4xl font-bold mb-4">JSON Validator & Converter</h1>
+    <p class="text-[#90bbcb] text-sm sm:text-base md:text-lg px-4">Validate, format, and convert JSON data with detailed analysis</p>
+  </div>
+
+  <!-- Settings Panel -->
+  <div class="max-w-7xl mx-auto px-4 mb-6">
+    <div class="bg-[#223f49] rounded-lg p-4">
+      <div class="flex flex-wrap gap-4 items-center justify-between">
+        <div class="flex flex-wrap gap-4 items-center">
+          <div class="flex items-center gap-2">
+            <label class="text-white text-sm font-medium">Indentation:</label>
+            <select id="indent-select" class="bg-[#101e23] text-white rounded px-3 py-1 text-sm border border-[#223f49] focus:outline-none focus:border-[#0bb1ee]">
+              <option value="2">2 spaces</option>
+              <option value="4">4 spaces</option>
+              <option value="8">8 spaces</option>
+              <option value="0">Tab</option>
+            </select>
+          </div>
+          
+          <div class="flex items-center gap-2">
+            <label class="text-white text-sm font-medium">Convert to:</label>
+            <select id="format-select" class="bg-[#101e23] text-white rounded px-3 py-1 text-sm border border-[#223f49] focus:outline-none focus:border-[#0bb1ee]">
+              <option value="formatted">Formatted JSON</option>
+              <option value="minified">Minified JSON</option>
+              <option value="xml">XML</option>
+              <option value="yaml">YAML</option>
+              <option value="csv">CSV</option>
+              <option value="url-encoded">URL Encoded</option>
+              <option value="base64">Base64</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="flex items-center gap-2">
+          <input type="checkbox" id="auto-validate" class="rounded text-[#0bb1ee] bg-[#101e23] border-[#223f49] focus:ring-[#0bb1ee]" checked>
+          <label for="auto-validate" class="text-white text-sm font-medium">Auto-validate</label>
+        </div>
       </div>
     </div>
-    <h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Validation Results</h3>
-    <p class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4">No errors found. Your JSON is valid.</p>
-    <h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Conversion Options</h3>
-    <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-      <label class="flex flex-col min-w-40 flex-1">
-        <select
-          class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border-none bg-[#223f49] focus:border-none h-14 bg-[image:--select-button-svg] placeholder:text-[#90bbcb] p-4 text-base font-normal leading-normal"
-        >
-          <option value="one"></option>
-          <option value="two">two</option>
-          <option value="three">three</option>
-        </select>
-      </label>
-    </div>
-    <div class="flex px-4 py-3 justify-start">
-      <button
-        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#0bb1ee] text-[#101e23] text-sm font-bold leading-normal tracking-[0.015em]"
-      >
-        <span class="truncate">Convert</span>
-      </button>
-    </div>
-    <h3 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Converted Output</h3>
-    <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
-      <label class="flex flex-col min-w-40 flex-1">
+  </div>
+
+  <!-- Main Content Grid -->
+  <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-6">
+    
+    <!-- Input Section -->
+    <div class="space-y-4">
+      <div class="bg-[#223f49] rounded-lg p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h2 class="text-white text-xl font-semibold">JSON Input</h2>
+          <div class="flex gap-2">
+            <button id="clear-btn" class="copy-button" style="background: #dc2626; border-color: #dc2626; padding: 0.5rem 0.75rem; font-size: 0.875rem; min-height: 36px;">
+              Clear
+            </button>
+          </div>
+        </div>
+        
         <textarea
-          class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-xl text-white focus:outline-0 focus:ring-0 border-none bg-[#223f49] focus:border-none min-h-36 placeholder:text-[#90bbcb] p-4 text-base font-normal leading-normal"
+          id="json-input"
+          placeholder="Paste your JSON here or use the sample data..."
+          class="w-full h-80 bg-[#101e23] text-white rounded-lg p-4 font-mono text-sm border border-[#223f49] focus:outline-none focus:border-[#0bb1ee] resize-none placeholder:text-[#90bbcb]"
         ></textarea>
-      </label>
+        
+        <!-- Action Buttons -->
+        <div class="flex flex-wrap gap-2 mt-4">
+          <button id="validate-btn" class="copy-button">
+            Validate
+          </button>
+          <button id="format-btn" class="copy-button" style="background: #22c55e; border-color: #22c55e;">
+            Format
+          </button>
+          <button id="minify-btn" class="copy-button" style="background: #eab308; border-color: #eab308;">
+            Minify
+          </button>
+          <button id="convert-btn" class="copy-button" style="background: #a855f7; border-color: #a855f7;">
+            Convert
+          </button>
+        </div>
+      </div>
+
+      <!-- Analysis Section -->
+      <div id="analysis-results" class="bg-[#223f49] rounded-lg p-6" style="display: none;">
+        <h3 class="text-white text-lg font-semibold mb-4">JSON Analysis</h3>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="text-center">
+            <div class="text-[#90bbcb] text-sm">Size</div>
+            <div id="json-size" class="text-white text-lg font-semibold">-</div>
+          </div>
+          <div class="text-center">
+            <div class="text-[#90bbcb] text-sm">Keys</div>
+            <div id="json-keys" class="text-white text-lg font-semibold">-</div>
+          </div>
+          <div class="text-center">
+            <div class="text-[#90bbcb] text-sm">Depth</div>
+            <div id="json-depth" class="text-white text-lg font-semibold">-</div>
+          </div>
+          <div class="text-center">
+            <div class="text-[#90bbcb] text-sm">Type</div>
+            <div id="json-type" class="text-white text-lg font-semibold">-</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="flex px-4 py-3 justify-start">
-      <button
-        class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#223f49] text-white text-sm font-bold leading-normal tracking-[0.015em]"
-      >
-        <span class="truncate">Copy Output</span>
-      </button>
+
+    <!-- Output Section -->
+    <div class="space-y-4">
+      <!-- Validation Results -->
+      <div id="validation-results" class="p-4 rounded-lg" style="display: none;">
+        <div class="flex items-start gap-3">
+          <div class="mt-1">
+            <div class="w-2 h-2 rounded-full bg-current"></div>
+          </div>
+          <div id="validation-message" class="flex-1 font-medium">
+            Validation result will appear here
+          </div>
+        </div>
+      </div>
+
+      <!-- Error Display -->
+      <div id="error-display" class="bg-red-900/30 border border-red-600/50 rounded-lg p-4" style="display: none;">
+        <div class="flex items-start gap-3">
+          <div class="text-red-400 mt-1">⚠️</div>
+          <div>
+            <div class="text-red-400 font-semibold mb-1">Error</div>
+            <div id="error-message" class="text-red-300 text-sm font-mono"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Output Display -->
+      <div class="bg-[#223f49] rounded-lg p-6">
+        <div class="flex justify-between items-center mb-4">
+          <h3 class="text-white text-lg font-semibold">Output</h3>
+          <button class="copy-button" data-copy-target="formatted-output">
+            Copy Output
+          </button>
+        </div>
+        
+        <textarea
+          id="formatted-output"
+          readonly
+          placeholder="Formatted output will appear here..."
+          class="w-full h-80 bg-[#101e23] text-white rounded-lg p-4 font-mono text-sm border border-[#223f49] resize-none placeholder:text-[#90bbcb]"
+        ></textarea>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="bg-[#223f49] rounded-lg p-6">
+        <h3 class="text-white text-lg font-semibold mb-4">Quick Actions</h3>
+        <div class="grid grid-cols-2 gap-3">
+          <button class="copy-button" data-copy-target="json-input" style="padding: 0.75rem; font-size: 0.875rem; min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            📋 Copy Input
+          </button>
+          <button class="copy-button" data-copy-target="formatted-output" style="padding: 0.75rem; font-size: 0.875rem; min-height: 44px; display: flex; align-items: center; justify-content: center; gap: 0.5rem;">
+            📋 Copy Output
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
+<script>
+// Initialize JSON Validator when this content loads
+(function() {
+  // Wait for the next tick to ensure DOM is ready
+  setTimeout(function() {
+    if (window.initJSONValidator) {
+      window.initJSONValidator();
+    }
+  }, 0);
+})();
+</script>
 {{end}}
