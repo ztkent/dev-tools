@@ -1,0 +1,18 @@
+version: '3.9'
+networks:
+  kent_network:
+    name: kent_network
+services:
+  tools:
+    build:
+      context: .
+    expose:
+      - 8088
+    environment:
+      - APP_PORT=8088
+    volumes:
+      - ./data:/app/data
+    profiles:
+      - sync
+    networks:
+      - kent_network

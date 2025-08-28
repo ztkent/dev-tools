@@ -41,7 +41,7 @@ func main() {
 		replay.WithLogger(log.New(os.Stdout, "replay: ", log.LstdFlags)),
 	))
 
-	port := os.Getenv("SERVER_PORT")
+	port := os.Getenv("APP_PORT")
 	if port == "" {
 		port = "8087" // Default port
 	}
