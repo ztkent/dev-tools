@@ -13,6 +13,6 @@ services:
     volumes:
       - ./data:/app/data
     profiles:
-      - sync
+      - tools
     networks:
       - kent_network
