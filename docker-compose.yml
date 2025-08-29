@@ -7,9 +7,9 @@ services:
     build:
       context: .
     expose:
-      - 8088
+      - 8087
     environment:
-      - APP_PORT=8088
+      - APP_PORT=8087
     volumes:
       - ./data:/app/data
     profiles:

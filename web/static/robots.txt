@@ -1,20 +1,5 @@
-# Developer Tools Website
-# https://developers.google.com/search/docs/crawling-indexing/robots/intro
-
 User-agent: *
 Allow: /
-
-# Allow crawling of main pages
-Allow: /unix-time
-Allow: /json-validator
-Allow: /ip
-Allow: /css-linter
-Allow: /dns-leak
-
-Disallow: /tools/
-Disallow: /api/
-Disallow: /certs/
-Disallow: /internal/
 
 Crawl-delay: 1
 

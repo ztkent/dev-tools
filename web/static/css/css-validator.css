@@ -72,7 +72,6 @@
   color: #90bbcb;
 }
 
-/* Copy button enhancements */
 .copy-button:hover {
   background: #0bb1ee;
   color: #101e23;
@@ -207,7 +206,6 @@
   color: #ef4444;
 }
 
-/* Statistics grid enhancements */
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -316,7 +314,7 @@
   user-select: text;
 }
 
-/* Syntax highlighting for CSS (basic) */
+/* Syntax highlighting for CSS */
 .css-syntax-highlight {
   font-family: 'Courier New', monospace;
   line-height: 1.5;

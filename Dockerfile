@@ -8,6 +8,6 @@ COPY . .
 RUN go build -o main
 RUN mkdir -p /app/data
 
-EXPOSE 8088
+EXPOSE 8087
 
 CMD ["./main"]

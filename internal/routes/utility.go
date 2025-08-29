@@ -2,7 +2,6 @@ package routes
 
 import "html/template"
 
-// Breadcrumb represents a breadcrumb item
 type Breadcrumb struct {
 	Name string
 	URL  string
@@ -33,7 +32,6 @@ func getToolTitle(toolName string) string {
 	return "Dev Tools"
 }
 
-// getToolBreadcrumbs returns breadcrumbs for a given tool
 func getToolBreadcrumbs(toolName string) []Breadcrumb {
 	breadcrumbs := []Breadcrumb{
 		{Name: "Home", URL: "/"},
